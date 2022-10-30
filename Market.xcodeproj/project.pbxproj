@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21737CD8E787776715268419 /* Pods_MarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C864511F1C54E4A9064E446 /* Pods_MarketTests.framework */; };
+		310ABBD2F6911E8068499215 /* Pods_Market.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80D9BF9338D7561FD333BA1 /* Pods_Market.framework */; };
+		31BE1AD9290ED5210051E507 /* ListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE1AD8290ED5210051E507 /* ListViewModelTest.swift */; };
+		31BE1ADC290ED5B60051E507 /* DataLoaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE1ADB290ED5B60051E507 /* DataLoaderMock.swift */; };
+		31BE1AE0290ED97F0051E507 /* items_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 31BE1ADF290ED88D0051E507 /* items_v2.json */; };
 		31FDAE72290E97ED0005773D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAE71290E97ED0005773D /* AppDelegate.swift */; };
 		31FDAE74290E97ED0005773D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAE73290E97ED0005773D /* SceneDelegate.swift */; };
-		31FDAE79290E97ED0005773D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FDAE77290E97ED0005773D /* Main.storyboard */; };
 		31FDAE7B290E97EE0005773D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FDAE7A290E97EE0005773D /* Assets.xcassets */; };
 		31FDAE7E290E97EE0005773D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FDAE7C290E97EE0005773D /* LaunchScreen.storyboard */; };
 		31FDAE89290E97EE0005773D /* MarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAE88290E97EE0005773D /* MarketTests.swift */; };
@@ -29,7 +33,6 @@
 		31FDAEC5290EA0440005773D /* ObservableType+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAEC4290EA0440005773D /* ObservableType+Action.swift */; };
 		31FDAEC7290EA04B0005773D /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAEC6290EA04B0005773D /* UIViewController+Rx.swift */; };
 		31FDAEC9290EA0510005773D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAEC8290EA0510005773D /* UIColor.swift */; };
-		F95A215889118D7D7CDC2DD4 /* Pods_Market_Market.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AED1D902AEA4ABDFEA05156 /* Pods_Market_Market.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,11 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C864511F1C54E4A9064E446 /* Pods_MarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21703D1D0E573D61CCEB60FF /* Pods-Market-Market.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market-Market.debug.xcconfig"; path = "Target Support Files/Pods-Market-Market/Pods-Market-Market.debug.xcconfig"; sourceTree = "<group>"; };
+		31BE1AD8290ED5210051E507 /* ListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTest.swift; sourceTree = "<group>"; };
+		31BE1ADB290ED5B60051E507 /* DataLoaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderMock.swift; sourceTree = "<group>"; };
+		31BE1ADF290ED88D0051E507 /* items_v2.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = items_v2.json; sourceTree = "<group>"; };
 		31FDAE6E290E97ED0005773D /* Market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Market.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FDAE71290E97ED0005773D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31FDAE73290E97ED0005773D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31FDAE78290E97ED0005773D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31FDAE7A290E97EE0005773D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31FDAE7D290E97EE0005773D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31FDAE7F290E97EE0005773D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +84,9 @@
 		31FDAEC6290EA04B0005773D /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		31FDAEC8290EA0510005773D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		35D6C76215DCFC77BA704C05 /* Pods-Market.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market.release.xcconfig"; path = "Target Support Files/Pods-Market/Pods-Market.release.xcconfig"; sourceTree = "<group>"; };
-		7AED1D902AEA4ABDFEA05156 /* Pods_Market_Market.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market_Market.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FAC22D28101C018ABA05DCE /* Pods-MarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTests.release.xcconfig"; path = "Target Support Files/Pods-MarketTests/Pods-MarketTests.release.xcconfig"; sourceTree = "<group>"; };
+		97D46121CA20B771D8C89494 /* Pods-MarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTests.debug.xcconfig"; path = "Target Support Files/Pods-MarketTests/Pods-MarketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B80D9BF9338D7561FD333BA1 /* Pods_Market.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0235107EBD79A6D16C66946 /* Pods-Market.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market.debug.xcconfig"; path = "Target Support Files/Pods-Market/Pods-Market.debug.xcconfig"; sourceTree = "<group>"; };
 		F99406CD96082281E9F31C39 /* Pods-Market-Market.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market-Market.release.xcconfig"; path = "Target Support Files/Pods-Market-Market/Pods-Market-Market.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F95A215889118D7D7CDC2DD4 /* Pods_Market_Market.framework in Frameworks */,
+				310ABBD2F6911E8068499215 /* Pods_Market.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21737CD8E787776715268419 /* Pods_MarketTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +118,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3124ADE6290EC94700F17387 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				31FDAE7A290E97EE0005773D /* Assets.xcassets */,
+				31FDAE7C290E97EE0005773D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		31BE1ADA290ED5A10051E507 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				31BE1ADB290ED5B60051E507 /* DataLoaderMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		31DC3488290ED18E0003E2CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				31BE1ADF290ED88D0051E507 /* items_v2.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		31FDAE65290E97ED0005773D = {
 			isa = PBXGroup;
 			children = (
@@ -138,9 +172,7 @@
 				31FDAEA2290E9B8D0005773D /* Application */,
 				31FDAEAF290E9DE30005773D /* Model */,
 				31FDAEB5290E9E200005773D /* Services */,
-				31FDAE77290E97ED0005773D /* Main.storyboard */,
-				31FDAE7A290E97EE0005773D /* Assets.xcassets */,
-				31FDAE7C290E97EE0005773D /* LaunchScreen.storyboard */,
+				3124ADE6290EC94700F17387 /* Resources */,
 				31FDAE7F290E97EE0005773D /* Info.plist */,
 			);
 			path = Market;
@@ -150,6 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				31FDAE88290E97EE0005773D /* MarketTests.swift */,
+				31BE1AD8290ED5210051E507 /* ListViewModelTest.swift */,
+				31BE1ADA290ED5A10051E507 /* Mock */,
+				31DC3488290ED18E0003E2CB /* Resources */,
 			);
 			path = MarketTests;
 			sourceTree = "<group>";
@@ -270,6 +305,8 @@
 				35D6C76215DCFC77BA704C05 /* Pods-Market.release.xcconfig */,
 				21703D1D0E573D61CCEB60FF /* Pods-Market-Market.debug.xcconfig */,
 				F99406CD96082281E9F31C39 /* Pods-Market-Market.release.xcconfig */,
+				97D46121CA20B771D8C89494 /* Pods-MarketTests.debug.xcconfig */,
+				3FAC22D28101C018ABA05DCE /* Pods-MarketTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -277,7 +314,8 @@
 		D4DF85FBB4318761EE93E3F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7AED1D902AEA4ABDFEA05156 /* Pods_Market_Market.framework */,
+				B80D9BF9338D7561FD333BA1 /* Pods_Market.framework */,
+				1C864511F1C54E4A9064E446 /* Pods_MarketTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,7 +331,7 @@
 				31FDAE6A290E97ED0005773D /* Sources */,
 				31FDAE6B290E97ED0005773D /* Frameworks */,
 				31FDAE6C290E97ED0005773D /* Resources */,
-				8B78A44AEA06563536198AB4 /* [CP] Embed Pods Frameworks */,
+				53B88473D7543389C9ED16F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,9 +346,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31FDAE9B290E97EE0005773D /* Build configuration list for PBXNativeTarget "MarketTests" */;
 			buildPhases = (
+				FC111B020DBC8EBB012A2F56 /* [CP] Check Pods Manifest.lock */,
 				31FDAE80290E97EE0005773D /* Sources */,
 				31FDAE81290E97EE0005773D /* Frameworks */,
 				31FDAE82290E97EE0005773D /* Resources */,
+				2F8B22A5D6C2018C050E69E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,7 +430,6 @@
 			files = (
 				31FDAE7E290E97EE0005773D /* LaunchScreen.storyboard in Resources */,
 				31FDAE7B290E97EE0005773D /* Assets.xcassets in Resources */,
-				31FDAE79290E97ED0005773D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BE1AE0290ED97F0051E507 /* items_v2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +451,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F8B22A5D6C2018C050E69E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarketTests/Pods-MarketTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarketTests/Pods-MarketTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarketTests/Pods-MarketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3180D96A121146AD406390A6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,28 +483,50 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Market-Market-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Market-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8B78A44AEA06563536198AB4 /* [CP] Embed Pods Frameworks */ = {
+		53B88473D7543389C9ED16F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Market-Market/Pods-Market-Market-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Market/Pods-Market-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Market-Market/Pods-Market-Market-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Market/Pods-Market-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Market-Market/Pods-Market-Market-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Market/Pods-Market-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC111B020DBC8EBB012A2F56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarketTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -480,6 +559,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BE1ADC290ED5B60051E507 /* DataLoaderMock.swift in Sources */,
+				31BE1AD9290ED5210051E507 /* ListViewModelTest.swift in Sources */,
 				31FDAE89290E97EE0005773D /* MarketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,14 +590,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		31FDAE77290E97ED0005773D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31FDAE78290E97ED0005773D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		31FDAE7C290E97EE0005773D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -644,7 +717,7 @@
 		};
 		31FDAE99290E97EE0005773D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21703D1D0E573D61CCEB60FF /* Pods-Market-Market.debug.xcconfig */;
+			baseConfigurationReference = C0235107EBD79A6D16C66946 /* Pods-Market.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -653,11 +726,10 @@
 				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Market/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -666,15 +738,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Valu.Market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		31FDAE9A290E97EE0005773D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F99406CD96082281E9F31C39 /* Pods-Market-Market.release.xcconfig */;
+			baseConfigurationReference = 35D6C76215DCFC77BA704C05 /* Pods-Market.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -683,11 +758,10 @@
 				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Market/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -696,14 +770,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Valu.Market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		31FDAE9C290E97EE0005773D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97D46121CA20B771D8C89494 /* Pods-MarketTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -724,6 +802,7 @@
 		};
 		31FDAE9D290E97EE0005773D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FAC22D28101C018ABA05DCE /* Pods-MarketTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

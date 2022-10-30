@@ -1,56 +1,57 @@
 PODS:
-  - Action (4.0.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - Alamofire (4.9.1)
-  - Differentiator (4.0.1)
-  - Kingfisher (5.12.0):
-    - Kingfisher/Core (= 5.12.0)
-  - Kingfisher/Core (5.12.0)
-  - RxAlamofire (5.1.0):
-    - RxAlamofire/Core (= 5.1.0)
-  - RxAlamofire/Core (5.1.0):
-    - Alamofire (~> 4.8)
-    - RxSwift (~> 5.0)
-  - RxCocoa (5.0.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxKingfisher (1.0.0):
+  - Action (5.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - Alamofire (5.6.2)
+  - Differentiator (5.0.0)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxKingfisher (2.1.0):
     - Kingfisher (~> 5)
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
-  - RxOptional (4.1.0):
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.3):
-    - RxSwift (~> 5)
-  - RxSwift (5.0.1)
-  - RxSwiftExt (5.2.0):
-    - RxSwiftExt/Core (= 5.2.0)
-    - RxSwiftExt/RxCocoa (= 5.2.0)
-  - RxSwiftExt/Core (5.2.0):
-    - RxSwift (~> 5.0)
-  - RxSwiftExt/RxCocoa (5.2.0):
-    - RxCocoa (~> 5.0)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - RxSwiftExt (6.0.1):
+    - RxSwiftExt/Core (= 6.0.1)
+    - RxSwiftExt/RxCocoa (= 6.0.1)
+  - RxSwiftExt/Core (6.0.1):
+    - RxSwift (~> 6.0)
+  - RxSwiftExt/RxCocoa (6.0.1):
+    - RxCocoa (~> 6.0)
     - RxSwiftExt/Core
-  - Strongify (1.4)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
 
 DEPENDENCIES:
-  - Action (= 4.0.0)
-  - Alamofire (= 4.9.1)
-  - Kingfisher (= 5.12.0)
-  - RxAlamofire (= 5.1.0)
-  - RxCocoa (= 5.0.1)
-  - RxDataSources (= 4.0.1)
-  - RxKingfisher (= 1.0.0)
-  - RxOptional (= 4.1.0)
-  - RxSwift (= 5.0.1)
-  - RxSwiftExt (= 5.2.0)
-  - Strongify (from `https://github.com/milanhorvatovic/Strongify`, branch `master`)
+  - Action
+  - Alamofire
+  - Kingfisher
+  - RxAlamofire
+  - RxCocoa
+  - RxDataSources
+  - RxKingfisher
+  - RxOptional
+  - RxSwift
+  - RxSwiftExt
+  - RxTest
 
 SPEC REPOS:
   trunk:
@@ -66,32 +67,23 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - RxSwiftExt
-
-EXTERNAL SOURCES:
-  Strongify:
-    :branch: master
-    :git: https://github.com/milanhorvatovic/Strongify
-
-CHECKOUT OPTIONS:
-  Strongify:
-    :commit: 1775ca688623f578b0ab5496157c83a148f8f8ad
-    :git: https://github.com/milanhorvatovic/Strongify
+    - RxTest
 
 SPEC CHECKSUMS:
-  Action: 0d14986aad0f1330aa27ce65d0cdeaacbb63d91c
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
-  RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxKingfisher: 0f07678aca3e6a20143dfba67ec2d2c70d443a9a
-  RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
-  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
-  Strongify: 6fe9d257dd86dd65f5ec3cdca2a18c90b366ad17
+  Action: 47f1825511907b4fcd79dd7a7db9526c20f78018
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxKingfisher: a602fbf8751d756a7cc6190ddfedc2ce0d301377
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
 
-PODFILE CHECKSUM: 224e960c6c8a8831ee9f45a395edc0a5b874da96
+PODFILE CHECKSUM: 90c995148c95fd6c01adb7c0e8080dfdf375ee68
 
 COCOAPODS: 1.11.3

@@ -81,7 +81,7 @@ protocol NetworkEngine {
     
 }
 
-extension SessionManager: NetworkEngine {
+extension Session: NetworkEngine {
     
     func perform(request: Request) -> Observable<Data> {
         return RxAlamofire.requestData(request.method.alamofireMethod,

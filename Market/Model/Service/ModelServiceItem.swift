@@ -14,7 +14,7 @@ extension Model.Service {
         let identifier: Int
         let title: String
         let description: String
-        let price: Double
+        private let price: Double
         private let imageURLString: String
         
     }
@@ -39,6 +39,10 @@ extension Model.Service.Item {
     
     var imageURL: URL? {
         return URL(string: imageURLString)
+    }
+    
+    var priceString: String? {
+        return "\(price) EGP"
     }
 
 }

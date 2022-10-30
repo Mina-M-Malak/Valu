@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         do {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let dataLoader = try DataLoader(base: "https://fakestoreapi.com",
-                                            engine: SessionManager(configuration: URLSessionConfiguration.default))
+                                            engine: Session(configuration: URLSessionConfiguration.default))
             let viewModel = ListViewModel(dataLoader: dataLoader)
             let viewController = ListViewController.init(viewModel: viewModel)
             self.window?.rootViewController = viewController

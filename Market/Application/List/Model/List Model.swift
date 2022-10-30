@@ -15,6 +15,7 @@ struct ListSection {
     
 }
 
+//MARK: - IdentifiableType
 extension Model.Service.Item: IdentifiableType {
     
     var identity: Int {
@@ -23,6 +24,7 @@ extension Model.Service.Item: IdentifiableType {
     
 }
 
+//MARK: - AnimatableSectionModelType
 extension ListSection: AnimatableSectionModelType {
 
     var identity: String {

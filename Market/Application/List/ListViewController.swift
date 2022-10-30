@@ -6,7 +6,6 @@
 //
 import UIKit
 import MessageUI
-import Strongify
 import RxSwift
 import RxCocoa
 import RxDataSources
@@ -63,15 +62,16 @@ final class ListViewController: UIViewController {
             .bind(to: self.viewModel.searchTerm)
             .disposed(by: self.disposeBag)
         
-        let searchBarResignFirstResponder = strongify(weak: self,
-                                                      closure: { (self) in
-                                                        self.searchBar.resignFirstResponder()
-        })
         self.searchBar.rx.cancelButtonClicked
-            .subscribe(onNext: searchBarResignFirstResponder)
+            .subscribe(onNext: { [weak self] () in
+                self?.searchBar.resignFirstResponder()
+            })
             .disposed(by: self.disposeBag)
+        
         self.searchBar.rx.searchButtonClicked
-            .subscribe(onNext: searchBarResignFirstResponder)
+            .subscribe(onNext: { [weak self] () in
+                self?.searchBar.resignFirstResponder()
+            })
             .disposed(by: self.disposeBag)
         
         self.viewModel.data
@@ -107,48 +107,55 @@ final class ListViewController: UIViewController {
         data
             .filterEmpty()
             .delay(.seconds(0), scheduler: MainScheduler.asyncInstance)
-            .subscribe(onNext: strongify(weak: self, closure: { (self, _) in
-                self.tableView.reloadData()
-            }))
+            .subscribe(onNext: { [weak self] (_) in
+                self?.tableView.reloadData()
+            })
             .disposed(by: self.disposeBag)
         
         self.viewModel.error
-            .subscribe(onNext: strongify(weak: self, closure: { (self, error) in
-                self.showAlert(with: "Error", message: error.localizedDescription)
-            }))
+            .subscribe(onNext: { [weak self] (error) in
+                self?.showAlert(with: "Error", message: error.localizedDescription)
+            })
             .disposed(by: self.disposeBag)
         
         self.viewModel.isLoading
             .bind(to: self.pullToRefresh.rx.isRefreshing)
             .disposed(by: self.disposeBag)
         
+        self.tableView.rx.modelSelected(ViewModelType.ModelType.self)
+            .subscribe(onNext: { (_) in
+                // go to details
+            })
+            .disposed(by: self.disposeBag)
+        
     }
     
 }
 
+//MARK: - List UI
 extension ListViewController {
     
     private func createTableView() -> UITableView {
         let tableView = UITableView(frame: .zero,
                                     style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = .white
         tableView.register(ListCell.self,
                            forCellReuseIdentifier: type(of: self).cellIdentifier)
         return tableView
     }
 
     private func createSearchBar() -> UISearchBar {
-        let searchBar = UISearchBar()
-        searchBar.frame = CGRect(x: 0,
-                                 y: 0,
-                                 width: self.tableView.bounds.width,
-                                 height: 50)
+        let searchBar = UISearchBar(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: self.tableView.bounds.width,
+                                                  height: 50))
+        searchBar.tintColor = .white
         searchBar.searchBarStyle = .default
-        searchBar.backgroundColor = .lightGray
+        searchBar.backgroundColor = UIColor(red: 216.0/255.0, green: 100.0/255.0, blue: 43.0/255.0, alpha: 1.0)
         searchBar.searchTextField.backgroundColor = .white
         searchBar.searchTextField.textColor = .darkText
-        searchBar.setBackgroundImage(UIColor.lightGray.image(), for: .any, barMetrics: .default)
+        searchBar.setBackgroundImage(UIColor(red: 216.0/255.0, green: 100.0/255.0, blue: 43.0/255.0, alpha: 1.0).image(), for: .any, barMetrics: .default)
         searchBar.showsCancelButton = true
         searchBar.placeholder = "Start searching..."
         searchBar.keyboardType = .default
@@ -205,6 +212,7 @@ extension ListViewController {
     
 }
 
+//MARK: - Alerts
 extension ListViewController {
     
     private func showAlert(with title: String,
