@@ -11,11 +11,10 @@ import XCTest
 
 import RxSwift
 import Action
-
 import RxTest
 
 class ListViewModelTests: XCTestCase {
-
+    
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
     var viewModel: ListViewModel!
@@ -65,24 +64,24 @@ class ListViewModelTests: XCTestCase {
                 .bind(to: self.viewModel.fetchAction)
                 .disposed(by: self.disposeBag)
             self.scheduler.createColdObservable([
-                .next(20, "Fjallraven"),
-                .next(30, "Fjallraven"),
-                .next(40, "Casual"),
-                .next(50, "Fjallraven"),
+                .next(20, "laptop"),
+                .next(30, "laptop"),
+                .next(40, "Slim-fitting"),
+                .next(50, "laptop"),
                 .next(60, ""),
             ])
                 .bind(to: self.viewModel.searchTerm)
                 .disposed(by: self.disposeBag)
             self.scheduler.start()
             
-            let welleSample = self.mocked.filter(matching: Predicate { $0.title.lowercased().contains("Fjallraven") } || Predicate { $0.description.lowercased().contains("Stash") } )
-            let starkSample = self.mocked.filter(matching: Predicate { $0.title.lowercased().contains("Casual") } || Predicate { $0.description.lowercased().contains("style") } )
+            let laptopSample = self.mocked.filter(matching: Predicate { $0.title.contains("laptop") } || Predicate { $0.description.contains("laptop") } )
+            let slimFitSample = self.mocked.filter(matching: Predicate { $0.title.contains("Slim-fitting") } || Predicate { $0.description.contains("Slim-fitting") } )
             
             XCTAssertEqual(data.events, [
                 .next(10, self.mocked),
-                .next(20, welleSample),
-                .next(40, starkSample),
-                .next(50, welleSample),
+                .next(20, laptopSample),
+                .next(40, slimFitSample),
+                .next(50, laptopSample),
                 .next(60, self.mocked),
             ])
         }
