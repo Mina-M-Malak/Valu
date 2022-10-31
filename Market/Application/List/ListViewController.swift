@@ -192,6 +192,8 @@ extension ListViewController {
     
     // MARK: setup UI & autolayout
     private func setupUI() {
+        view.backgroundColor = UIColor(red: 216.0/255.0, green: 100.0/255.0, blue: 43.0/255.0, alpha: 1.0)
+        
         view.addSubview(tableView)
         tableView.tableHeaderView = searchBar
         tableView.backgroundView = createEmptyBackgroundView()
@@ -206,7 +208,7 @@ extension ListViewController {
     private func setupAutoLayout() {
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
