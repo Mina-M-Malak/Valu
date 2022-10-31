@@ -21,9 +21,9 @@ final class ListViewController: UIViewController {
     private let viewModel: ViewModelType
     var disposeBag = DisposeBag()
     
-    private lazy var tableView: UITableView = self.createTableView()
-    private lazy var searchBar: UISearchBar = self.createSearchBar()
-    private lazy var pullToRefresh: UIRefreshControl = self.createPullToRefresh()
+    private lazy var tableView: UITableView = createTableView()
+    private lazy var searchBar: UISearchBar = createSearchBar()
+    private lazy var pullToRefresh: UIRefreshControl = createPullToRefresh()
     
     init(viewModel: ViewModelType) {
         self.viewModel = viewModel
@@ -37,46 +37,46 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.disposeBag = DisposeBag()
+        disposeBag = DisposeBag()
         
-        self.setupUI()
-        self.setupAutoLayout()
+        setupUI()
+        setupAutoLayout()
         
-        self.rx.viewWillAppearObservable
+        rx.viewWillAppearObservable
             .take(1)
             .map({ (_) -> Void in
                 return
             })
-            .bind(to: self.viewModel.fetchAction)
-            .disposed(by: self.disposeBag)
+            .bind(to: viewModel.fetchAction)
+            .disposed(by: disposeBag)
         
-        self.pullToRefresh.rx.controlEvent(.valueChanged)
-            .bind(to: self.viewModel.fetchAction)
-            .disposed(by: self.disposeBag)
+        pullToRefresh.rx.controlEvent(.valueChanged)
+            .bind(to: viewModel.fetchAction)
+            .disposed(by: disposeBag)
         
-        self.searchBar.rx.text
+        searchBar.rx.text
             .debounce(.milliseconds(250),
                       scheduler: MainScheduler.instance)
             .filterNil()
             .distinctUntilChanged()
-            .bind(to: self.viewModel.searchTerm)
-            .disposed(by: self.disposeBag)
+            .bind(to: viewModel.searchTerm)
+            .disposed(by: disposeBag)
         
-        self.searchBar.rx.cancelButtonClicked
+        searchBar.rx.cancelButtonClicked
             .subscribe(onNext: { [weak self] () in
                 self?.searchBar.resignFirstResponder()
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
-        self.searchBar.rx.searchButtonClicked
+        searchBar.rx.searchButtonClicked
             .subscribe(onNext: { [weak self] () in
                 self?.searchBar.resignFirstResponder()
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
-        self.viewModel.data
+        viewModel.data
             .subscribe()
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         let dataSource = RxTableViewSectionedAnimatedDataSource<ListSection>(configureCell: { [unowned self] (dataSource, tableView, indexPath, item) -> UITableViewCell in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: type(of: self).cellIdentifier,
@@ -88,21 +88,21 @@ final class ListViewController: UIViewController {
             return cell
         })
         
-        let data = self.viewModel.data.share(replay: 1, scope: .forever)
+        let data = viewModel.data.share(replay: 1, scope: .forever)
         data
             .map({ (data) -> [ListSection] in
                 return [ListSection(items: data)]
             })
-            .bind(to: self.tableView.rx.items(dataSource: dataSource))
-            .disposed(by: self.disposeBag)
-        if let backgroundView = self.tableView.backgroundView {
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        if let backgroundView = tableView.backgroundView {
             data
                 .map({ (data) -> CGFloat in
                     return data.isEmpty ? 1.0 : 0.0
                 })
                 .distinctUntilChanged()
                 .bind(to: backgroundView.rx.alpha)
-                .disposed(by: self.disposeBag)
+                .disposed(by: disposeBag)
         }
         data
             .filterEmpty()
@@ -110,23 +110,23 @@ final class ListViewController: UIViewController {
             .subscribe(onNext: { [weak self] (_) in
                 self?.tableView.reloadData()
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
-        self.viewModel.error
+        viewModel.error
             .subscribe(onNext: { [weak self] (error) in
                 self?.showAlert(with: "Error", message: error.localizedDescription)
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
-        self.viewModel.isLoading
-            .bind(to: self.pullToRefresh.rx.isRefreshing)
-            .disposed(by: self.disposeBag)
+        viewModel.isLoading
+            .bind(to: pullToRefresh.rx.isRefreshing)
+            .disposed(by: disposeBag)
         
-        self.tableView.rx.modelSelected(ViewModelType.ModelType.self)
+        tableView.rx.modelSelected(ViewModelType.ModelType.self)
             .subscribe(onNext: { (_) in
                 // go to details
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -148,7 +148,7 @@ extension ListViewController {
     private func createSearchBar() -> UISearchBar {
         let searchBar = UISearchBar(frame: CGRect(x: 0,
                                                   y: 0,
-                                                  width: self.tableView.bounds.width,
+                                                  width: tableView.bounds.width,
                                                   height: 50))
         searchBar.tintColor = .white
         searchBar.searchBarStyle = .default
@@ -192,22 +192,22 @@ extension ListViewController {
     
     // MARK: setup UI & autolayout
     private func setupUI() {
-        self.view.addSubview(self.tableView)
-        self.tableView.tableHeaderView = self.searchBar
-        self.tableView.backgroundView = self.createEmptyBackgroundView()
-        self.tableView.tableFooterView = UIView()
-        self.tableView.addSubview(self.pullToRefresh)
+        view.addSubview(tableView)
+        tableView.tableHeaderView = searchBar
+        tableView.backgroundView = createEmptyBackgroundView()
+        tableView.tableFooterView = UIView()
+        tableView.addSubview(pullToRefresh)
         
-        self.tableView.backgroundView?.alpha = 1
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 100
+        tableView.backgroundView?.alpha = 1
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
     private func setupAutoLayout() {
-        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
 }
@@ -221,7 +221,7 @@ extension ListViewController {
                                                 message: message,
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

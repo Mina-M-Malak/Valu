@@ -49,7 +49,7 @@ func ~=<T, V: Collection>(lhs: KeyPath<T, V>,
 extension Collection {
     
     func filter(matching predicate: Predicate<Element>) -> [Element] {
-        return self.filter(predicate.matches)
+        return filter(predicate.matches)
     }
     
 }

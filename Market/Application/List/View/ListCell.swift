@@ -20,10 +20,10 @@ final class ListCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.addSubview(previewImageView)
-        self.addSubview(titleLabel)
-        self.addSubview(descriptionLabel)
-        self.addSubview(priceLabel)
+        addSubview(previewImageView)
+        addSubview(titleLabel)
+        addSubview(descriptionLabel)
+        addSubview(priceLabel)
         
         previewImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         previewImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true

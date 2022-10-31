@@ -26,17 +26,6 @@ extension DataLoader: ListDataLoader { }
 protocol ListViewModelProtocol {
     
     typealias ModelType = Model.Service.Item
-    
-    var data: Observable<[ModelType]> { get }
-    var error: Observable<Swift.Error> { get }
-    var isLoading: Observable<Bool> { get }
-    
-    var searchTerm: BehaviorRelay<String> { get }
-    
-    var fetchAction: Action<Void, [ModelType]> { get }
-    
-    init(dataLoader: ListDataLoader)
-    
 }
 
 final class ListViewModel: ListViewModelProtocol {
@@ -49,32 +38,33 @@ final class ListViewModel: ListViewModelProtocol {
     
     private let dataSubject = PublishSubject<[ModelType]>()
     var data: Observable<[ModelType]> {
-        return self.dataSubject
+        return dataSubject
             .asObservable()
             .distinctUntilChanged()
     }
     var error: Observable<Swift.Error> {
-        return self.fetchAction.underlyingError
+        return fetchAction.underlyingError
     }
     
     var isLoading: Observable<Bool> {
-        return self.fetchAction.executing
+        return fetchAction.executing
     }
     
     let searchTerm = BehaviorRelay<String>(value: "")
     
-    private(set) lazy var fetchAction: Action<Void, [ModelType]> = self.createFetchAction()
+    private(set) lazy var fetchAction: Action<Void, [ModelType]> =
+    createFetchAction()
     
     init(dataLoader: ListDataLoader) {
         self.dataLoader = dataLoader
         
-        self.fetchAction
+        fetchAction
             .elements
-            .bind(to: self.receivedDataSubject)
-            .disposed(by: self.disposeBag)
+            .bind(to: receivedDataSubject)
+            .disposed(by: disposeBag)
         
-        Observable.combineLatest(self.receivedDataSubject,
-                                 self.searchTerm)
+        Observable.combineLatest(receivedDataSubject,
+                                 searchTerm)
             .map({ (items, term) -> [ModelType] in
                 guard !term.isEmpty else {
                     return items
@@ -83,8 +73,8 @@ final class ListViewModel: ListViewModelProtocol {
                 return items.filter(matching: Predicate { $0.title.lowercased().contains(term) } || Predicate { $0.description.lowercased().contains(term) } )
             })
             .distinctUntilChanged()
-            .bind(to: self.dataSubject)
-            .disposed(by: self.disposeBag)
+            .bind(to: dataSubject)
+            .disposed(by: disposeBag)
     }
     
 }
@@ -93,7 +83,7 @@ final class ListViewModel: ListViewModelProtocol {
 extension ListViewModel {
     private func createFetchAction() -> Action<Void, [ModelType]> {
         return Action { [unowned self] () -> Observable<[ModelType]> in
-            return self.dataLoader.loadItems()
+            return dataLoader.loadItems()
         }
     }
 }

@@ -19,14 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         do {
-            self.window = UIWindow(frame: UIScreen.main.bounds)
+            window = UIWindow(frame: UIScreen.main.bounds)
             let dataLoader = try DataLoader(base: "https://fakestoreapi.com",
                                             engine: Session(configuration: URLSessionConfiguration.default))
             let viewModel = ListViewModel(dataLoader: dataLoader)
             let viewController = ListViewController.init(viewModel: viewModel)
-            self.window?.rootViewController = viewController
-            self.window?.makeKeyAndVisible()
-            self.window?.windowScene = windowScene
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
+            window?.windowScene = windowScene
         }
         catch {
             fatalError(error.localizedDescription)

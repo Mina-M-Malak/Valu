@@ -42,8 +42,8 @@ final class DataLoader {
     // MARK: Load
     func loadItems() -> Observable<[Model.Service.Item]> {
         do {
-            let request = try self._constructRequest(with: "/products")
-            return self.engine
+            let request = try _constructRequest(with: "/products")
+            return engine
                 .perform(request: request)
                 //.debug("Received data:")
                 .catchError({ (error) -> Observable<Data> in

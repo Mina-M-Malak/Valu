@@ -92,7 +92,7 @@ extension Session: NetworkEngine {
     }
     
     func cancelAllRequets() {
-        self.session.getTasksWithCompletionHandler { (dataTasks, uploadTasks, downloadTasks) in
+        session.getTasksWithCompletionHandler { (dataTasks, uploadTasks, downloadTasks) in
             let cancel: (URLSessionTask) -> Void = { (task) in
                 task.cancel()
             }

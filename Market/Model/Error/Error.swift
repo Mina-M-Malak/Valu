@@ -10,7 +10,7 @@ import Foundation
 struct Error: Swift.Error {
     
     var message: String {
-        self._message ?? self.error?.localizedDescription ?? self.underlyingError?.localizedDescription ?? "Unknown message"
+        _message ?? error?.localizedDescription ?? underlyingError?.localizedDescription ?? "Unknown message"
     }
     
     private let _message: String?

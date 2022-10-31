@@ -19,7 +19,7 @@ struct ListSection {
 extension Model.Service.Item: IdentifiableType {
     
     var identity: Int {
-        return self.identifier
+        return identifier
     }
     
 }
@@ -28,7 +28,7 @@ extension Model.Service.Item: IdentifiableType {
 extension ListSection: AnimatableSectionModelType {
 
     var identity: String {
-        return self.header
+        return header
     }
     
     init(original: ListSection, items: [Model.Service.Item]) {

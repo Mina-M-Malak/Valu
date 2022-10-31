@@ -23,27 +23,27 @@ class ListViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.scheduler = TestScheduler(initialClock: 0)
-        self.disposeBag = DisposeBag()
-        self.mocked = DataLoaderMock.Local.loadItems()
+        scheduler = TestScheduler(initialClock: 0)
+        disposeBag = DisposeBag()
+        mocked = DataLoaderMock.Local.loadItems()
     }
     
     func test_local_data_fetch() {
         do {
-            self.viewModel = try ListViewModel(dataLoader: self.prepareLocalDataLoader())
-            let data = self.scheduler.createObserver([ListViewModel.ModelType].self)
+            viewModel = try ListViewModel(dataLoader: prepareLocalDataLoader())
+            let data = scheduler.createObserver([ListViewModel.ModelType].self)
             
-            self.viewModel
+            viewModel
                 .data
                 .bind(to: data)
-                .disposed(by: self.disposeBag)
+                .disposed(by: disposeBag)
             
-            self.scheduler.createColdObservable([.next(1, ())])
-                .bind(to: self.viewModel.fetchAction)
-                .disposed(by: self.disposeBag)
-            self.scheduler.start()
+            scheduler.createColdObservable([.next(1, ())])
+                .bind(to: viewModel.fetchAction)
+                .disposed(by: disposeBag)
+            scheduler.start()
             
-            XCTAssertEqual(data.events, [.next(1, self.mocked)])
+            XCTAssertEqual(data.events, [.next(1, mocked)])
         }
         catch {
             XCTFail(error.localizedDescription)
@@ -52,37 +52,37 @@ class ListViewModelTests: XCTestCase {
     
     func test_local_data_search() {
         do {
-            self.viewModel = try ListViewModel(dataLoader: self.prepareLocalDataLoader())
-            let data = self.scheduler.createObserver([ListViewModel.ModelType].self)
+            viewModel = try ListViewModel(dataLoader: prepareLocalDataLoader())
+            let data = scheduler.createObserver([ListViewModel.ModelType].self)
             
-            self.viewModel
+            viewModel
                 .data
                 .bind(to: data)
-                .disposed(by: self.disposeBag)
+                .disposed(by: disposeBag)
             
-            self.scheduler.createColdObservable([.next(10, ())])
-                .bind(to: self.viewModel.fetchAction)
-                .disposed(by: self.disposeBag)
-            self.scheduler.createColdObservable([
+            scheduler.createColdObservable([.next(10, ())])
+                .bind(to: viewModel.fetchAction)
+                .disposed(by: disposeBag)
+            scheduler.createColdObservable([
                 .next(20, "laptop"),
                 .next(30, "laptop"),
                 .next(40, "Slim-fitting"),
                 .next(50, "laptop"),
                 .next(60, ""),
             ])
-                .bind(to: self.viewModel.searchTerm)
-                .disposed(by: self.disposeBag)
-            self.scheduler.start()
+                .bind(to: viewModel.searchTerm)
+                .disposed(by: disposeBag)
+            scheduler.start()
             
-            let laptopSample = self.mocked.filter(matching: Predicate { $0.title.contains("laptop") } || Predicate { $0.description.contains("laptop") } )
-            let slimFitSample = self.mocked.filter(matching: Predicate { $0.title.contains("Slim-fitting") } || Predicate { $0.description.contains("Slim-fitting") } )
+            let laptopSample = mocked.filter(matching: Predicate { $0.title.contains("laptop") } || Predicate { $0.description.contains("laptop") } )
+            let slimFitSample = mocked.filter(matching: Predicate { $0.title.contains("Slim-fitting") } || Predicate { $0.description.contains("Slim-fitting") } )
             
             XCTAssertEqual(data.events, [
-                .next(10, self.mocked),
+                .next(10, mocked),
                 .next(20, laptopSample),
                 .next(40, slimFitSample),
                 .next(50, laptopSample),
-                .next(60, self.mocked),
+                .next(60, mocked),
             ])
         }
         catch {
