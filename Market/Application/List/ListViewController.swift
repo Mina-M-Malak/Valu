@@ -201,9 +201,9 @@ extension ListViewController {
         tableView.tableFooterView = UIView()
         tableView.addSubview(pullToRefresh)
         
-        tableView.backgroundView?.alpha = 1
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+        
     }
     
     private func setupAutoLayout() {
