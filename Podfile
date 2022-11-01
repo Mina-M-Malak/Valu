@@ -35,6 +35,7 @@
 
       pod 'Kingfisher'
       pod 'RxKingfisher'
+      pod 'Cosmos'
 
   end
 

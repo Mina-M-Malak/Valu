@@ -12,6 +12,8 @@
 		31BE1AD9290ED5210051E507 /* ListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE1AD8290ED5210051E507 /* ListViewModelTest.swift */; };
 		31BE1ADC290ED5B60051E507 /* DataLoaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE1ADB290ED5B60051E507 /* DataLoaderMock.swift */; };
 		31BE1AE0290ED97F0051E507 /* items_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 31BE1ADF290ED88D0051E507 /* items_v2.json */; };
+		31DE640D291101B300BC97CD /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DE640B291101B300BC97CD /* ProductDetailsViewController.swift */; };
+		31F16713291117E9004DC240 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F16712291117E9004DC240 /* ProductDetailsViewController.xib */; };
 		31FDAE72290E97ED0005773D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAE71290E97ED0005773D /* AppDelegate.swift */; };
 		31FDAE74290E97ED0005773D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDAE73290E97ED0005773D /* SceneDelegate.swift */; };
 		31FDAE7B290E97EE0005773D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FDAE7A290E97EE0005773D /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		31BE1AD8290ED5210051E507 /* ListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTest.swift; sourceTree = "<group>"; };
 		31BE1ADB290ED5B60051E507 /* DataLoaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderMock.swift; sourceTree = "<group>"; };
 		31BE1ADF290ED88D0051E507 /* items_v2.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = items_v2.json; sourceTree = "<group>"; };
+		31DE640B291101B300BC97CD /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		31F16712291117E9004DC240 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		31FDAE6E290E97ED0005773D /* Market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Market.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FDAE71290E97ED0005773D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31FDAE73290E97ED0005773D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		31A6F0A42911178000F418C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31F16712291117E9004DC240 /* ProductDetailsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		31BE1ADA290ED5A10051E507 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,15 @@
 				31BE1ADF290ED88D0051E507 /* items_v2.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		31DE64082910FAA000BC97CD /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				31A6F0A42911178000F418C7 /* View */,
+				31DE640B291101B300BC97CD /* ProductDetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		31FDAE65290E97ED0005773D = {
@@ -212,6 +233,7 @@
 			children = (
 				31FDAEA1290E9B650005773D /* Main */,
 				31FDAEA3290E9BA10005773D /* List */,
+				31DE64082910FAA000BC97CD /* Details */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -429,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31FDAE7E290E97EE0005773D /* LaunchScreen.storyboard in Resources */,
+				31F16713291117E9004DC240 /* ProductDetailsViewController.xib in Resources */,
 				31FDAE7B290E97EE0005773D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +573,7 @@
 				31FDAE74290E97ED0005773D /* SceneDelegate.swift in Sources */,
 				31FDAEC9290EA0510005773D /* UIColor.swift in Sources */,
 				31FDAEAE290E9CAC0005773D /* ListViewController.swift in Sources */,
+				31DE640D291101B300BC97CD /* ProductDetailsViewController.swift in Sources */,
 				31FDAEB4290E9E000005773D /* Error.swift in Sources */,
 				31FDAEB1290E9DF40005773D /* Model.swift in Sources */,
 			);
@@ -722,9 +746,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Market/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -758,9 +782,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Market/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -794,9 +818,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
@@ -817,9 +841,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
@@ -838,9 +862,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
@@ -859,9 +883,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TVF44C8U64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;

@@ -123,8 +123,9 @@ final class ListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(ViewModelType.ModelType.self)
-            .subscribe(onNext: { (_) in
+            .subscribe(onNext: { [weak self] (item) in
                 // go to details
+                self?.didSelect(item: item)
             })
             .disposed(by: disposeBag)
         
@@ -152,10 +153,10 @@ extension ListViewController {
                                                   height: 50))
         searchBar.tintColor = .white
         searchBar.searchBarStyle = .default
-        searchBar.backgroundColor = UIColor(red: 216.0/255.0, green: 100.0/255.0, blue: 43.0/255.0, alpha: 1.0)
+        searchBar.backgroundColor = .appColor
         searchBar.searchTextField.backgroundColor = .white
         searchBar.searchTextField.textColor = .darkText
-        searchBar.setBackgroundImage(UIColor(red: 216.0/255.0, green: 100.0/255.0, blue: 43.0/255.0, alpha: 1.0).image(), for: .any, barMetrics: .default)
+        searchBar.setBackgroundImage(UIColor.appColor.image(), for: .any, barMetrics: .default)
         searchBar.showsCancelButton = true
         searchBar.placeholder = "Start searching..."
         searchBar.keyboardType = .default
@@ -192,7 +193,7 @@ extension ListViewController {
     
     // MARK: setup UI & autolayout
     private func setupUI() {
-        view.backgroundColor = UIColor(red: 216.0/255.0, green: 100.0/255.0, blue: 43.0/255.0, alpha: 1.0)
+        view.backgroundColor = .appColor
         
         view.addSubview(tableView)
         tableView.tableHeaderView = searchBar
@@ -224,6 +225,15 @@ extension ListViewController {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
+    }
+    
+}
+
+extension ListViewController {
+    
+    private func didSelect(item: ViewModelType.ModelType) {
+        let vc = ProductDetailsViewController(model: item)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

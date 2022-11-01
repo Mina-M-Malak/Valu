@@ -24,7 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                             engine: Session(configuration: URLSessionConfiguration.default))
             let viewModel = ListViewModel(dataLoader: dataLoader)
             let viewController = ListViewController.init(viewModel: viewModel)
-            window?.rootViewController = viewController
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationController.navigationBar.backgroundColor = .appColor
+            navigationController.navigationBar.tintColor = .white
+            window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
             window?.windowScene = windowScene
         }

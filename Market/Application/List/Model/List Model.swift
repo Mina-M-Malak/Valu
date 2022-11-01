@@ -21,7 +21,6 @@ extension Model.Service.Item: IdentifiableType {
     var identity: Int {
         return identifier
     }
-    
 }
 
 //MARK: - AnimatableSectionModelType

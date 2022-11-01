@@ -14,9 +14,15 @@ extension Model.Service {
         let identifier: Int
         let title: String
         let description: String
+        let category: String
         private let price: Double
         private let imageURLString: String
-        
+        let rate: RateModel
+    }
+    
+    struct RateModel: Codable {
+        let rate: Double
+        let count: Int
     }
     
 }
@@ -26,14 +32,16 @@ extension Model.Service.Item: Codable {
     private enum CodingKeys: String, CodingKey {
         
         case identifier = "id"
-        case title , description , price
+        case title , description , price , category
         case imageURLString = "image"
-        
+        case rate = "rating"
     }
     
 }
 
 extension Model.Service.Item: Equatable { }
+
+extension Model.Service.RateModel: Equatable { }
 
 extension Model.Service.Item {
     
